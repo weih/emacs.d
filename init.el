@@ -14,6 +14,9 @@
                       neotree
 		      flx-ido
 		      ido-vertical-mode
+                      ido-ubiquitous
+                      ag
+                      smex
 		      ))
 
 (dolist (p my-packages)
@@ -21,6 +24,12 @@
     (package-install p)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (global-linum-mode 1)
 
@@ -52,6 +61,8 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
+
+(ido-ubiquitous-mode 1)
 
 (set-face-attribute 'default nil :font "Monaco-14")
 
