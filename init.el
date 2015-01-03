@@ -24,6 +24,7 @@
                       smex
                       guide-key
                       smartparens
+                      anzu
                       hideshowvis))
 
 (dolist (p my-packages)
@@ -106,6 +107,14 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Anzu
+(global-anzu-mode 1)
+(defun my-anzu-update-func (here total)
+  (propertize (format "<%d/%d> " here total)
+              'face 'font-lock-type-face))
+
+(setq anzu-mode-line-update-function 'my-anzu-update-func)
 
 ;; Flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
