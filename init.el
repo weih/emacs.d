@@ -25,6 +25,36 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq inhibit-startup-message t)
+
+(setq-default mode-line-format
+  (list
+     (propertize "%I " 'face 'font-lock-constant-face) ;; size
+
+    ;; the buffer name; the file name as a tool tip
+    '(:eval (propertize "%b " 'face 'font-lock-keyword-face
+        'help-echo (buffer-file-name)))
+
+    ;; line and column
+    "(" ;; '%02' to set to 2 chars at least; prevents flickering
+      (propertize "%l" 'face 'font-lock-type-face) ","
+      (propertize "%c" 'face 'font-lock-type-face) 
+    ") "
+
+    ;; the current major mode for the buffer.
+    '(:eval (propertize "%m" 'face 'font-lock-string-face
+              'help-echo buffer-file-coding-system))
+
+    ;; was this buffer modified since the last save?
+    '(:evalk (when (buffer-modified-p)
+              (propertize "[Mod] "
+                          'face 'font-lock-warning-face
+                          'help-echo "Buffer has been modified")))
+
+    ;; i don't want to see minor-modes; but if you want, uncomment this:
+    ;; '(:eval minor-mode-alist)
+    ))
+
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
