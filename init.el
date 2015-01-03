@@ -19,6 +19,7 @@
                       ag
                       smex
                       guide-key
+                      hideshowvis
 		      ))
 
 (dolist (p my-packages)
@@ -27,6 +28,8 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 (setq inhibit-startup-message t)
 
 (setq-default mode-line-format
@@ -57,23 +60,39 @@
     ;; '(:eval minor-mode-alist)
     ))
 
+(setq-default evil-want-C-u-scroll t)
+(global-evil-leader-mode)
+(evil-leader/set-key "u" 'universal-argument)
+(evil-mode 1)
+(evil-leader/set-leader ",")
+
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+(add-hook 'clojure-mode-hook 'hideshowvis-enable)
+(add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
+(add-hook 'ruby-mode-hook 'hideshowvis-enable)
+(add-hook 'python-mode-hook 'hideshowvis-enable)
+(hideshowvis-symbols)
+(define-key evil-normal-state-map "zA" 'hs-hide-all)
+(define-key evil-normal-state-map "zB" 'hs-show-all)
+
 (global-linum-mode 1)
 
 (projectile-global-mode)
+(define-key evil-normal-state-map "\C-p" 'projectile-find-file)
 
 (setq guide-key/guide-key-sequence t)
 (guide-key-mode 1)
 
-(setq-default evil-want-C-u-scroll t)
-(global-evil-leader-mode)
-(evil-mode 1)
-(evil-leader/set-leader ",")
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+(define-key evil-normal-state-map "gc" 'toggle-comment-on-line)
 
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 (evil-define-command cofi/maybe-exit ()
@@ -106,7 +125,6 @@
 
 (setq neo-window-width 32
       neo-banner-message nil
-      neo-smart-open t
       neo-auto-indent-point t
       neo-persist-show nil
       neo-dont-be-alone t)
@@ -116,10 +134,7 @@
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)))
 
-
-
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'dichromacy t)
 
 (server-start)
