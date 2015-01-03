@@ -63,6 +63,7 @@
 (setq-default evil-want-C-u-scroll t)
 (global-evil-leader-mode)
 (evil-leader/set-key "u" 'universal-argument)
+(evil-leader/set-key "," 'evil-buffer)
 (evil-mode 1)
 (evil-leader/set-leader ",")
 
