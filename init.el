@@ -10,6 +10,7 @@
                       clojure-mode
                       cider
                       evil
+                      evil-leader
                       company
                       neotree
 		      flx-ido
@@ -17,6 +18,7 @@
                       ido-ubiquitous
                       ag
                       smex
+                      guide-key
 		      ))
 
 (dolist (p my-packages)
@@ -65,7 +67,13 @@
 
 (projectile-global-mode)
 
+(setq guide-key/guide-key-sequence t)
+(guide-key-mode 1)
+
+(setq-default evil-want-C-u-scroll t)
+(global-evil-leader-mode)
 (evil-mode 1)
+(evil-leader/set-leader ",")
 
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 (evil-define-command cofi/maybe-exit ()
@@ -96,9 +104,22 @@
 
 (set-face-attribute 'default nil :font "Monaco-14")
 
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+(setq neo-window-width 32
+      neo-banner-message nil
+      neo-smart-open t
+      neo-auto-indent-point t
+      neo-persist-show nil
+      neo-dont-be-alone t)
+
+(evil-leader/set-key "l" 'neotree-toggle)
+(add-hook 'neotree-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)))
+
+
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'dichromacy t)
+
+(server-start)
