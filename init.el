@@ -13,7 +13,6 @@
                       coffee-mode
                       web-mode
                       cider
-                      flycheck
                       evil
                       evil-leader
                       company
@@ -109,7 +108,7 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
