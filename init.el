@@ -10,7 +10,10 @@
 (defvar my-packages '(better-defaults
                       projectile
                       clojure-mode
+                      coffee-mode
+                      web-mode
                       cider
+                      flycheck
                       evil
                       evil-leader
                       company
@@ -21,6 +24,7 @@
                       ag
                       smex
                       guide-key
+                      smartparens
                       hideshowvis))
 
 (dolist (p my-packages)
@@ -41,6 +45,7 @@
 
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'dichromacy t)
 
 ;; Mode Line
@@ -101,14 +106,17 @@
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
 (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
+(add-hook 'web-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
 (define-key evil-normal-state-map "zA" 'hs-hide-all)
 (define-key evil-normal-state-map "zB" 'hs-show-all)
@@ -125,6 +133,17 @@
 ;; Guide Key
 (setq guide-key/guide-key-sequence t)
 (guide-key-mode 1)
+
+;; Smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
+(show-smartparens-global-mode t)
+(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
+(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+
+;; Webmode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; Comment toggling
 (defun toggle-comment-on-line ()
