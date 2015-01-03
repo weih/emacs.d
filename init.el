@@ -68,8 +68,8 @@
               'help-echo buffer-file-coding-system))
 
     ;; was this buffer modified since the last save?
-    '(:evalk (when (buffer-modified-p)
-              (propertize "[Mod] "
+    '(:eval (when (buffer-modified-p)
+              (propertize " (Mod)"
                           'face 'font-lock-warning-face
                           'help-echo "Buffer has been modified")))
 
@@ -114,7 +114,7 @@
   (propertize (format "<%d/%d> " here total)
               'face 'font-lock-type-face))
 
-(setq anzu-mode-line-update-function 'my-anzu-update-func)
+(setq anzuw-mode-line-update-function 'my-anzu-update-func)
 
 ;; Flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
