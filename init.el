@@ -28,6 +28,8 @@
                       anzu
                       ace-jump-mode
                       hideshowvis
+                      magit
+                      git-timemachine
                       jazz-theme
                       twilight-theme
                       afternoon-theme
@@ -203,6 +205,7 @@
       neo-auto-indent-point t
       neo-persist-show nil
       neo-dont-be-alone t)
+(custom-set-variables '(neo-theme (quote ascii)))
 (evil-leader/set-key "l" 'neotree-toggle)
 (add-hook 'neotree-mode-hook
           (lambda ()
