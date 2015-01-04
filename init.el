@@ -12,6 +12,7 @@
                       clojure-mode
                       coffee-mode
                       web-mode
+                      yaml-mode
                       cider
                       evil
                       evil-leader
