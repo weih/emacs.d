@@ -12,6 +12,8 @@
                       clojure-mode
                       coffee-mode
                       web-mode
+                      js2-mode
+                      scala-mode2
                       yaml-mode
                       cider
                       evil
@@ -151,6 +153,8 @@
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'web-mode-hook 'hideshowvis-enable)
+(add-hook 'js2-mode-hook 'hideshowvis-enable)
+(add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
 (define-key evil-normal-state-map "zA" 'hs-hide-all)
 (define-key evil-normal-state-map "zB" 'hs-show-all)
@@ -182,6 +186,12 @@
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;; Js2 Mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Whitespace Mode
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Comment toggling
 (defun toggle-comment-on-line ()
