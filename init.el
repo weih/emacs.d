@@ -25,6 +25,7 @@
                       guide-key
                       smartparens
                       anzu
+                      ace-jump-mode
                       hideshowvis))
 
 (dolist (p my-packages)
@@ -39,6 +40,7 @@
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
 (global-linum-mode 1)
+(global-hl-line-mode 1)
 
 ;; Font
 (set-face-attribute 'default nil :font "Monaco-14")
@@ -47,6 +49,8 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'dichromacy t)
+;; (load-theme 'afternoon t)
+;; (load-theme 'jazz t)
 
 ;; Mode Line
 (setq-default mode-line-format
@@ -108,13 +112,18 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; Cider
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
+;; Companym Mode
+(global-company-mode 1)
+
 ;; Anzu
 (global-anzu-mode 1)
 (defun my-anzu-update-func (here total)
   (propertize (format "<%d/%d> " here total)
               'face 'font-lock-type-face))
-
-(setq anzuw-mode-line-update-function 'my-anzu-update-func)
+(setq anzu-mode-line-update-function 'my-anzu-update-func)
 
 ;; Flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -130,9 +139,12 @@
 (define-key evil-normal-state-map "zB" 'hs-show-all)
 
 ;; Highlight Chars
-(require 'highlight-chars)
-(add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
-(add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
+;; (require 'highlight-chars)
+;; (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
+;; (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
+
+;; Ace Jump Mode
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
 
 ;; Projectile
 (projectile-global-mode)
@@ -149,7 +161,7 @@
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
-;; Webmode
+;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
