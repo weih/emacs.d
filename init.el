@@ -57,6 +57,9 @@
 (load-theme 'dichromacy t)
 ;; (load-theme 'afternoon t)
 ;; (load-theme 'jazz t)
+;; (load-theme 'cyberpunk t)
+;; (load-theme 'twilight t)
+;; (load-theme 'distinguished t)
 
 ;; Mode Line
 (setq-default mode-line-format
