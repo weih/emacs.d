@@ -156,8 +156,10 @@
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'web-mode-hook 'hideshowvis-enable)
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
+(add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
+(custom-set-faces '(hs-face ((t (:foreground "keyboardFocusIndicatorColor")))))
 (define-key evil-normal-state-map "zA" 'hs-hide-all)
 (define-key evil-normal-state-map "zB" 'hs-show-all)
 
