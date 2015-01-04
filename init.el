@@ -16,6 +16,7 @@
                       scala-mode2
                       yaml-mode
                       markdown-mode
+                      scss-mode
                       cider
                       evil
                       evil-leader
