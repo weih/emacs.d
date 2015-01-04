@@ -26,7 +26,13 @@
                       smartparens
                       anzu
                       ace-jump-mode
-                      hideshowvis))
+                      hideshowvis
+                      jazz-theme
+                      twilight-theme
+                      afternoon-theme
+                      cyberpunk-theme
+                      distinguished-theme
+                      ))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
