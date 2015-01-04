@@ -55,6 +55,7 @@
 (setq inhibit-startup-message t)
 (global-linum-mode 1)
 (global-hl-line-mode 1)
+(recentf-mode 1)
 
 ;; Frame
 (set-frame-name "新しい 自分に生まれ変わったら きっと、もっと美しい明日がやってくる")
@@ -127,6 +128,10 @@
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
+
+
+;; Global Key Binding
+(define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 
 ;; Smex
 (smex-initialize)
