@@ -14,6 +14,7 @@
                       web-mode
                       js2-mode
                       scala-mode2
+                      lua-mode
                       yaml-mode
                       markdown-mode
                       scss-mode
@@ -154,6 +155,7 @@
 (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
+(add-hook 'lua-mode-hook 'hideshowvis-enable)
 (add-hook 'web-mode-hook 'hideshowvis-enable)
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
