@@ -49,6 +49,11 @@
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 
+;; Frame
+(set-frame-name "新しい 自分に生まれ変わったら きっと、もっと美しい明日がやってくる")
+(setq default-frame-alist '((top . 50) (left . 100)
+                            (width . 130) (height . 35)))
+
 ;; Font
 (set-face-attribute 'default nil :font "Monaco-14")
 
@@ -159,6 +164,7 @@
 ;; Projectile
 (projectile-global-mode)
 (define-key evil-normal-state-map "\C-p" 'projectile-find-file)
+(define-key evil-normal-state-map "\C-b" 'projectile-switch-to-buffer)
 
 ;; Guide Key
 (setq guide-key/guide-key-sequence t)
