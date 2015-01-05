@@ -30,7 +30,8 @@
                       ag
                       smex
                       guide-key
-                      smartparens
+                      ;; smartparens
+                      paredit
                       anzu
                       ace-jump-mode
                       hideshowvis
@@ -199,11 +200,14 @@
 (guide-key-mode 1)
 
 ;; Smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
-(show-smartparens-global-mode t)
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+;; (require 'smartparens-config)
+;; (smartparens-global-mode t)
+;; (show-smartparens-global-mode t)
+;; (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
+;; (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+
+;; Paredit
+(paredit-mode 1)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
