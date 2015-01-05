@@ -206,6 +206,9 @@
 
 ;; Js2 Mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-cleanup-whitespace t))
 
 ;; Whitespace Mode
 (add-hook 'before-save-hook 'whitespace-cleanup)
