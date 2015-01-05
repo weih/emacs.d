@@ -59,7 +59,11 @@
 (recentf-mode 1)
 
 ;; Frame
-(set-frame-name "新しい 自分に生まれ変わったら きっと、もっと美しい明日がやってくる")
+(defconst title "新しい自分に生まれ変わったら きっと、もっと美しい明日がやってくる")
+(set-frame-name title)
+(add-hook 'after-make-frame-functions (lambda (frame)
+                                        (select-frame frame)
+                                        (set-frame-name title)))
 (setq default-frame-alist '((top . 50) (left . 100)
                             (width . 130) (height . 35)))
 
