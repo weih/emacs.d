@@ -207,7 +207,13 @@
 ;; (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
 ;; Paredit
-(paredit-mode 1)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(add-hook 'ruby-mode-hook 'enable-paredit-mode)
+(add-hook 'js2-mode-hook 'enable-paredit-mode)
+(add-hook 'coffee-mode-hook 'enable-paredit-mode)
+(add-hook 'web-mode-hook 'enable-paredit-mode)
+(add-hook 'scala-mode-hook 'enable-paredit-mode)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
