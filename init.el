@@ -36,12 +36,12 @@
                       hideshowvis
                       magit
                       git-timemachine
+                      git-gutter+
                       jazz-theme
                       twilight-theme
                       afternoon-theme
                       cyberpunk-theme
-                      distinguished-theme
-                      ))
+                      distinguished-theme))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -133,6 +133,8 @@
                           (list evt))))))))
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 
+;; Git Gutter +
+(global-git-gutter+-mode 1)
 
 ;; Global Key Binding
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
