@@ -115,10 +115,10 @@
 ;; Evil
 (setq-default evil-want-C-u-scroll t)
 (global-evil-leader-mode)
+(evil-leader/set-leader ",")
 (evil-leader/set-key "u" 'universal-argument)
 (evil-leader/set-key "," 'evil-buffer)
 (evil-mode 1)
-(evil-leader/set-leader ",")
 
 (evil-define-command cofi/maybe-exit ()
   :repeat change
@@ -223,6 +223,7 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (define-key evil-normal-state-map "gc" 'toggle-comment-on-line)
+(define-key evil-visual-state-map "gc" 'comment-or-uncomment-region)
 
 ;; Ido
 (ido-mode 1)
