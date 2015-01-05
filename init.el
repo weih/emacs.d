@@ -9,6 +9,7 @@
 
 (defvar my-packages '(better-defaults
                       projectile
+                      editorconfig
                       clojure-mode
                       coffee-mode
                       web-mode
@@ -103,6 +104,9 @@
     ;; i don't want to see minor-modes; but if you want, uncomment this:
     ;; '(:eval minor-mode-alist)
     ))
+
+;; Editorconfig
+(load "editorconfig")
 
 ;; Evil
 (setq-default evil-want-C-u-scroll t)
