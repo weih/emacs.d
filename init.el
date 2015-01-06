@@ -57,6 +57,7 @@
 (setq inhibit-startup-message t)
 (global-linum-mode 1)
 (global-hl-line-mode 1)
+(global-auto-revert-mode 1)
 (recentf-mode 1)
 
 ;; Frame
