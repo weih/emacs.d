@@ -144,6 +144,11 @@
 
 ;; Global Key Binding
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
+(define-key evil-insert-state-map "\C-e" 'move-end-of-line)
+(define-key evil-normal-state-map "\M-h" 'paredit-backward-slurp-sexp)
+(define-key evil-normal-state-map "\M-j" 'paredit-backward-barf-sexp)
+(define-key evil-normal-state-map "\M-k" 'paredit-forward-barf-sexp)
+(define-key evil-normal-state-map "\M-l" 'paredit-forward-slurp-sexp)
 
 ;; Smex
 (smex-initialize)
@@ -173,7 +178,6 @@
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
-(add-hook 'web-mode-hook 'hideshowvis-enable)
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
