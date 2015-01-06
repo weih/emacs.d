@@ -55,6 +55,8 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
+(setq inhibit-splash-screen t)
+(setq visible-bell nil)
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 (global-auto-revert-mode 1)
