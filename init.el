@@ -146,12 +146,13 @@
 (global-git-gutter+-mode 1)
 
 ;; Global Key Binding
+(global-set-key (kbd "C-s") 'save-buffer)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
-(define-key evil-normal-state-map "\M-h" 'paredit-backward-slurp-sexp)
-(define-key evil-normal-state-map "\M-j" 'paredit-backward-barf-sexp)
-(define-key evil-normal-state-map "\M-k" 'paredit-forward-barf-sexp)
-(define-key evil-normal-state-map "\M-l" 'paredit-forward-slurp-sexp)
+(global-set-key "\M-h" 'paredit-backward-slurp-sexp)
+(global-set-key "\M-j" 'paredit-backward-barf-sexp)
+(global-set-key "\M-k" 'paredit-forward-barf-sexp)
+(global-set-key "\M-l" 'paredit-forward-slurp-sexp)
 
 ;; Smex
 (smex-initialize)
@@ -216,15 +217,23 @@
 ;; Paredit
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'ruby-mode-hook 'enable-paredit-mode)
-(add-hook 'js2-mode-hook 'enable-paredit-mode)
-(add-hook 'coffee-mode-hook 'enable-paredit-mode)
-(add-hook 'web-mode-hook 'enable-paredit-mode)
-(add-hook 'scala-mode-hook 'enable-paredit-mode)
+;; (add-hook 'ruby-mode-hook 'enable-paredit-mode)
+;; (add-hook 'js2-mode-hook 'enable-paredit-mode)
+;; (add-hook 'coffee-mode-hook 'enable-paredit-mode)
+;; (add-hook 'web-mode-hook 'enable-paredit-mode)
+;; (add-hook 'scala-mode-hook 'enable-paredit-mode)
+
+;; Ruby Mode
+(custom-set-variables
+ '(ruby-insert-encoding-magic-comment nil))
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(custom-set-variables
+ '(web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook (lambda ()
+                           (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
 
 ;; Js2 Mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
