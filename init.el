@@ -57,7 +57,7 @@
 (setq inhibit-startup-message t)
 (setq inhibit-splash-screen t)
 (setq visible-bell nil)
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 (global-hl-line-mode 1)
 (global-auto-revert-mode 1)
 (blink-cursor-mode 0)
@@ -185,7 +185,7 @@
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
-(add-hook 'js2-mode-hook 'hideshowvis-enable)
+;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
@@ -235,9 +235,9 @@
                            (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
 
 ;; Js2 Mode
-(add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+;; (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
 
 ;; Whitespace Mode
@@ -282,9 +282,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(js2-basic-offset 2)
- '(js2-cleanup-whitespace t)
- '(js2-mode-show-parse-errors t)
+ ;; '(js2-basic-offset 2)
+ ;; '(js2-cleanup-whitespace t)
+ ;; '(js2-mode-show-parse-errors t)
  '(neo-theme (quote ascii))
  '(ruby-insert-encoding-magic-comment nil)
  '(web-mode-markup-indent-offset 2))
