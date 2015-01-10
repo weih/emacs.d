@@ -19,6 +19,7 @@
                       yaml-mode
                       markdown-mode
                       scss-mode
+                      less-css-mode
                       cider
                       evil
                       evil-leader
@@ -30,7 +31,6 @@
                       ag
                       smex
                       guide-key
-                      ;; smartparens
                       paredit
                       anzu
                       ace-jump-mode
@@ -60,6 +60,7 @@
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 (global-auto-revert-mode 1)
+(blink-cursor-mode 0)
 (recentf-mode 1)
 
 ;; Frame
@@ -146,6 +147,8 @@
 (global-git-gutter+-mode 1)
 
 ;; Global Key Binding
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-s") 'save-buffer)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
@@ -186,7 +189,6 @@
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
-(custom-set-faces '(hs-face ((t (:foreground "keyboardFocusIndicatorColor")))))
 (define-key evil-normal-state-map "zA" 'hs-hide-all)
 (define-key evil-normal-state-map "zB" 'hs-show-all)
 
@@ -224,22 +226,19 @@
 ;; (add-hook 'scala-mode-hook 'enable-paredit-mode)
 
 ;; Ruby Mode
-(custom-set-variables
- '(ruby-insert-encoding-magic-comment nil))
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(custom-set-variables
- '(web-mode-markup-indent-offset 2))
+
 (add-hook 'web-mode-hook (lambda ()
                            (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
 
 ;; Js2 Mode
+(add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(custom-set-variables
- '(js2-basic-offset 2)
- '(js2-cleanup-whitespace t))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+
 
 ;; Whitespace Mode
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -267,11 +266,32 @@
       neo-auto-indent-point t
       neo-persist-show nil
       neo-dont-be-alone t)
-(custom-set-variables '(neo-theme (quote ascii)))
+
 (evil-leader/set-key "l" 'neotree-toggle)
 (add-hook 'neotree-mode-hook
           (lambda ()
-            (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)))
+            (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)))
 
 ;; Start server
 (server-start)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 2)
+ '(js2-cleanup-whitespace t)
+ '(js2-mode-show-parse-errors t)
+ '(neo-theme (quote ascii))
+ '(ruby-insert-encoding-magic-comment nil)
+ '(web-mode-markup-indent-offset 2))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hs-face ((t (:foreground "keyboardFocusIndicatorColor")))))
