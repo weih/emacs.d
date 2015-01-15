@@ -8,6 +8,7 @@
 (package-initialize)
 
 (defvar my-packages '(better-defaults
+                      exec-path-from-shell
                       projectile
                       editorconfig
                       clojure-mode
