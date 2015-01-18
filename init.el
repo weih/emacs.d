@@ -38,6 +38,7 @@
                       ace-jump-mode
                       hideshowvis
                       magit
+                      expand-region
                       git-timemachine
                       git-gutter+
                       jazz-theme
@@ -188,6 +189,9 @@
 
 ;; Flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Expand Region
+(global-set-key (kbd "M-w") 'er/expand-region)
 
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
