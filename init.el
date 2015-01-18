@@ -21,6 +21,7 @@
                       markdown-mode
                       scss-mode
                       less-css-mode
+                      emmet-mode
                       cider
                       evil
                       evil-leader
@@ -242,6 +243,9 @@
 
 (add-hook 'web-mode-hook (lambda ()
                            (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
+
+;;Emmet Mode
+(add-hook 'web-mode-hook 'emmet-mode)
 
 ;; Js2 Mode
 ;; (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
