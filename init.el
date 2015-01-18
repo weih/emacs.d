@@ -143,6 +143,7 @@
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
+(define-key evil-insert-state-map "\C-c" 'evil-normal-state)
 
 ;; Git Gutter +
 (global-git-gutter+-mode 1)
@@ -157,6 +158,13 @@
 (global-set-key "\M-j" 'paredit-backward-barf-sexp)
 (global-set-key "\M-k" 'paredit-forward-barf-sexp)
 (global-set-key "\M-l" 'paredit-forward-slurp-sexp)
+(defun insert-erb-tag ()
+  (interactive)
+  (insert "<% %>")
+  (evil-backward-char)
+  (evil-backward-char))
+(define-key evil-insert-state-map "\C-k" 'insert-erb-tag)
+(define-key evil-insert-state-map "\C-l" "binding.pry")
 
 ;; Smex
 (smex-initialize)
@@ -240,6 +248,8 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
+;; Coffee Mode
+(add-to-list 'auto-mode-alist '("\\.cjsx\\'" . coffee-mode))
 
 ;; Scss Mode
 (setq scss-compile-at-save nil)
@@ -286,6 +296,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0)
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace t)
  '(js2-mode-show-parse-errors t)
