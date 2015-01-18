@@ -237,9 +237,12 @@
 
 ;; Js2 Mode
 ;; (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
+
+;; Scss Mode
+(setq scss-compile-at-save nil)
 
 ;; Whitespace Mode
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -283,9 +286,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(js2-basic-offset 2)
- ;; '(js2-cleanup-whitespace t)
- ;; '(js2-mode-show-parse-errors t)
+ '(js2-basic-offset 2)
+ '(js2-cleanup-whitespace t)
+ '(js2-mode-show-parse-errors t)
  '(neo-theme (quote ascii))
  '(ruby-insert-encoding-magic-comment nil)
  '(web-mode-markup-indent-offset 2))
