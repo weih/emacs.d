@@ -38,6 +38,7 @@
                       ace-jump-mode
                       hideshowvis
                       magit
+                      ctags
                       expand-region
                       git-timemachine
                       git-gutter+
@@ -120,6 +121,11 @@
 
 ;; Editorconfig
 (load "editorconfig")
+
+;; Ctags
+(require 'ctags)
+(setq tags-revert-without-query t)
+(setq tags-add-tables t)
 
 ;; Evil
 (setq-default evil-want-C-u-scroll t)
@@ -250,6 +256,7 @@
 
 ;;Emmet Mode
 (add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'clojure-mode-hook 'emmet-mode)
 
 ;; Js2 Mode
 ;; (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
