@@ -317,6 +317,7 @@
  '(js2-mode-show-parse-errors t)
  '(neo-theme (quote ascii))
  '(ruby-insert-encoding-magic-comment nil)
+ '(web-mode-enable-auto-pairing nil)
  '(web-mode-markup-indent-offset 2))
 
 (custom-set-faces
