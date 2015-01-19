@@ -40,6 +40,7 @@
                       magit
                       ctags
                       expand-region
+                      multiple-cursors
                       git-timemachine
                       git-gutter+
                       jazz-theme
