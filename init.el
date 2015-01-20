@@ -170,6 +170,8 @@
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
+(global-set-key (kbd "S-<up>") 'scroll-other-window-down)
+(global-set-key (kbd "S-<down>") 'scroll-other-window)
 (global-set-key "\M-h" 'paredit-backward-slurp-sexp)
 (global-set-key "\M-j" 'paredit-backward-barf-sexp)
 (global-set-key "\M-k" 'paredit-forward-barf-sexp)
