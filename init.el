@@ -83,10 +83,10 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'dichromacy t)
+;; (load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
-;; (load-theme 'jazz t)
+(load-theme 'jazz t)
 ;; (load-theme 'cyberpunk t)
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
@@ -317,6 +317,9 @@
  '(js2-cleanup-whitespace t)
  '(js2-mode-show-parse-errors t)
  '(neo-theme (quote ascii))
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
  '(ruby-insert-encoding-magic-comment nil)
  '(web-mode-enable-auto-pairing nil)
  '(web-mode-markup-indent-offset 2))
@@ -326,4 +329,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:inherit company-tooltip :background "highlightColor"))))
+ '(company-scrollbar-fg ((t (:background "controlDarkShadowColor"))))
+ '(company-tooltip ((t (:background "highlightColor" :foreground "black"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :foreground "keyboardFocusIndicatorColor" :weight bold))))
+ '(company-tooltip-selection ((t (:inherit company-tooltip))))
  '(hs-face ((t (:foreground "keyboardFocusIndicatorColor")))))
