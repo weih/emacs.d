@@ -324,10 +324,14 @@
       neo-dont-be-alone t)
 
 (evil-leader/set-key "l" 'neotree-toggle)
+(evil-leader/set-key "." 'neotree-projectile-action)
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)
             (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "|") 'neotree-enter-vertical-split)
+            (define-key evil-normal-state-local-map (kbd "-") 'neotree-enter-horizontal-split)
+            (define-key evil-normal-state-local-map (kbd "g") 'neotree-preview)
             (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)))
 
 ;; Use OS X Color Picker in Emacs
