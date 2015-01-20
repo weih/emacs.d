@@ -64,10 +64,11 @@
 (setq inhibit-startup-message t)
 (setq inhibit-splash-screen t)
 (setq visible-bell nil)
-;; (global-linum-mode 1)
+(global-linum-mode 1)
 (global-hl-line-mode 1)
 (global-auto-revert-mode 1)
 (blink-cursor-mode 0)
+(delete-selection-mode 1)
 (recentf-mode 1)
 
 ;; Frame
@@ -224,17 +225,17 @@
 (global-set-key (kbd "M-w") 'er/expand-region)
 
 ;; Hideshowvis
-(add-hook 'clojure-mode-hook 'hideshowvis-enable)
-(add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
-(add-hook 'ruby-mode-hook 'hideshowvis-enable)
-(add-hook 'python-mode-hook 'hideshowvis-enable)
-(add-hook 'lua-mode-hook 'hideshowvis-enable)
+;; (add-hook 'clojure-mode-hook 'hideshowvis-enable)
+;; (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
+;; (add-hook 'ruby-mode-hook 'hideshowvis-enable)
+;; (add-hook 'python-mode-hook 'hideshowvis-enable)
+;; (add-hook 'lua-mode-hook 'hideshowvis-enable)
 ;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
-(add-hook 'coffee-mode-hook 'hideshowvis-enable)
-(add-hook 'scala-mode-hook 'hideshowvis-enable)
-(hideshowvis-symbols)
-(define-key evil-normal-state-map "zA" 'hs-hide-all)
-(define-key evil-normal-state-map "zB" 'hs-show-all)
+;; (add-hook 'coffee-mode-hook 'hideshowvis-enable)
+;; (add-hook 'scala-mode-hook 'hideshowvis-enable)
+;; (hideshowvis-symbols)
+;; (define-key evil-normal-state-map "zA" 'hs-hide-all)
+;; (define-key evil-normal-state-map "zB" 'hs-show-all)
 
 ;; Highlight Chars
 ;; (require 'highlight-chars)
@@ -285,6 +286,7 @@
 
 ;; Js2 Mode
 ;; (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
+(add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
