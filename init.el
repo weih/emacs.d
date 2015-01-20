@@ -190,6 +190,11 @@
 (global-company-mode 1)
 (define-key evil-insert-state-map "\C-i" 'company-ispell)
 
+;; Magit Mode
+(evil-leader/set-key "ms" 'magit-status)
+(evil-leader/set-key "mc" 'magit-commit)
+(evil-leader/set-key "mp" 'magit-push)
+
 ;; Anzu
 (global-anzu-mode 1)
 (defun my-anzu-update-func (here total)
@@ -228,6 +233,7 @@
 (projectile-global-mode)
 (define-key evil-normal-state-map "\C-p" 'projectile-find-file)
 (define-key evil-normal-state-map "\C-b" 'projectile-switch-to-buffer)
+(define-key evil-normal-state-map "\C-y" 'projectile-recentf)
 
 ;; Guide Key
 (setq guide-key/guide-key-sequence t)
