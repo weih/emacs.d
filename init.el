@@ -45,6 +45,7 @@
                       indent-guide
                       git-timemachine
                       git-gutter+
+                      highlight-symbol
                       jazz-theme
                       twilight-theme
                       afternoon-theme
@@ -171,8 +172,8 @@
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
-(global-set-key (kbd "S-<up>") 'scroll-other-window-down)
-(global-set-key (kbd "S-<down>") 'scroll-other-window)
+(global-set-key (kbd "s-<up>") 'scroll-other-window-down)
+(global-set-key (kbd "s-<down>") 'scroll-other-window)
 (global-set-key "\M-h" 'paredit-backward-slurp-sexp)
 (global-set-key "\M-j" 'paredit-backward-barf-sexp)
 (global-set-key "\M-k" 'paredit-forward-barf-sexp)
@@ -241,6 +242,13 @@
 ;; (require 'highlight-chars)
 ;; (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
 ;; (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
+
+;; Highlight Symbol
+(defun highlight-symbol-mode-on () (highlight-symbol-mode 1))
+(define-globalized-minor-mode global-highlight-symbol-mode highlight-symbol-mode highlight-symbol-mode-on)
+(global-highlight-symbol-mode 1)
+(global-set-key "\M-n" 'highlight-symbol-next)
+(global-set-key "\M-p" 'highlight-symbol-prev)
 
 ;; Ace Jump Mode
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
