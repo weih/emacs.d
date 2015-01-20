@@ -22,6 +22,7 @@
                       scss-mode
                       less-css-mode
                       emmet-mode
+                      rainbow-mode
                       cider
                       evil
                       evil-leader
@@ -156,6 +157,7 @@
                           (list evt))))))))
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 (define-key evil-insert-state-map "\C-c" 'evil-normal-state)
+(define-key evil-insert-state-map "\C-g" 'evil-normal-state)
 
 ;; Git Gutter +
 (global-git-gutter+-mode 1)
@@ -192,6 +194,10 @@
 ;; Companym Mode
 (global-company-mode 1)
 (define-key evil-insert-state-map "\C-i" 'company-ispell)
+
+;; Rainbow Mode
+(add-hook 'scss-mode-hook 'rainbow-mode)
+(add-hook 'less-mode-hook 'rainbow-mode)
 
 ;; Magit Mode
 (evil-leader/set-key "ms" 'magit-status)
