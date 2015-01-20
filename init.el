@@ -116,6 +116,8 @@
                           'face 'font-lock-warning-face
                           'help-echo "Buffer has been modified")))
 
+    '(:eval vc-mode)
+
     ;; i don't want to see minor-modes; but if you want, uncomment this:
     ;; '(:eval minor-mode-alist)
     ))
@@ -329,9 +331,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-preview ((t (:foreground "wheat"))))
+ '(company-preview-common ((t (:inherit company-preview :foreground "selectedKnobColor"))))
  '(company-scrollbar-bg ((t (:inherit company-tooltip :background "highlightColor"))))
  '(company-scrollbar-fg ((t (:background "controlDarkShadowColor"))))
- '(company-tooltip ((t (:background "highlightColor" :foreground "black"))))
+ '(company-tooltip ((t (:background "Black" :foreground "highlightColor"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :foreground "keyboardFocusIndicatorColor" :weight bold))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "alternateSelectedControlColor"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip))))
  '(hs-face ((t (:foreground "keyboardFocusIndicatorColor")))))
