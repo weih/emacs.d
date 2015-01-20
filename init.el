@@ -188,6 +188,7 @@
 
 ;; Companym Mode
 (global-company-mode 1)
+(define-key evil-insert-state-map "\C-i" 'company-ispell)
 
 ;; Anzu
 (global-anzu-mode 1)
