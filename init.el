@@ -165,6 +165,8 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
+(define-key evil-normal-state-map "\C-k" 'other-window)
+(define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
 (global-set-key "\M-h" 'paredit-backward-slurp-sexp)
 (global-set-key "\M-j" 'paredit-backward-barf-sexp)
 (global-set-key "\M-k" 'paredit-forward-barf-sexp)
@@ -194,6 +196,7 @@
 (evil-leader/set-key "ms" 'magit-status)
 (evil-leader/set-key "mc" 'magit-commit)
 (evil-leader/set-key "mp" 'magit-push)
+(evil-leader/set-key "md" 'magit-diff-unstaged)
 
 ;; Anzu
 (global-anzu-mode 1)
@@ -322,6 +325,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0)
+ '(frame-resize-pixelwise t)
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace t)
  '(js2-mode-show-parse-errors t)
