@@ -244,11 +244,11 @@
 ;; (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
 
 ;; Highlight Symbol
-(defun highlight-symbol-mode-on () (highlight-symbol-mode 1))
-(define-globalized-minor-mode global-highlight-symbol-mode highlight-symbol-mode highlight-symbol-mode-on)
-(global-highlight-symbol-mode 1)
-(global-set-key "\M-n" 'highlight-symbol-next)
-(global-set-key "\M-p" 'highlight-symbol-prev)
+(defun highlight-symbol-nav-mode-on () (highlight-symbol-nav-mode 1))
+(define-globalized-minor-mode global-highlight-symbol-nav-mode highlight-symbol-nav-mode highlight-symbol-nav-mode-on)
+(global-highlight-symbol-nav-mode 1)
+;; (global-set-key "\M-n" 'highlight-symbol-next)
+;; (global-set-key "\M-p" 'highlight-symbol-prev)
 
 ;; Ace Jump Mode
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
