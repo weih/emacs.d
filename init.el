@@ -315,7 +315,9 @@
 ;; Ruby Mode
 
 ;; Ensime
+(require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(define-key evil-normal-state-map "\M-." 'ensime-edit-definition)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
