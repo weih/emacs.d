@@ -167,6 +167,7 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-s") 'save-buffer)
+(evil-leader/set-key "k" 'kill-buffer-and-window)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
@@ -215,7 +216,7 @@
                 (lambda ()
                   (setq ido-temp-list result-list))))
           (ido-read-buffer (format "%d matches:" result-length))))))))
-(define-key evil-normal-state-map (kbd "C-m") 'recentf-interactive-complete)
+(define-key evil-normal-state-map (kbd "C-;") 'recentf-interactive-complete)
 
 ;; Smex
 (smex-initialize)
@@ -287,6 +288,7 @@
 ;; Projectile
 (projectile-global-mode)
 (define-key evil-normal-state-map "\C-p" 'projectile-find-file)
+(define-key evil-normal-state-map "\C-\M-p" 'projectile-find-file-other-window)
 (define-key evil-normal-state-map "\C-b" 'projectile-switch-to-buffer)
 (define-key evil-normal-state-map "\C-y" 'projectile-recentf)
 
