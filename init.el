@@ -1,5 +1,6 @@
 ;; Path
 (push "/usr/local/bin" exec-path)
+(push "/usr/local/bin" exec-path)
 
 ;; Package
 (require 'package)
