@@ -16,6 +16,7 @@
                       web-mode
                       js2-mode
                       scala-mode2
+                      ensime
                       lua-mode
                       yaml-mode
                       markdown-mode
@@ -40,6 +41,7 @@
                       hideshowvis
                       magit
                       ctags
+                      etags-select
                       expand-region
                       multiple-cursors
                       indent-guide
@@ -55,6 +57,9 @@
 (dolist (p my-packages)
   (unless (package-installed-p p)
     (package-install p)))
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;; Common
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -129,11 +134,6 @@
 ;; Editorconfig
 (load "editorconfig")
 
-;; Ctags
-(require 'ctags)
-(setq tags-revert-without-query t)
-(setq tags-add-tables t)
-
 ;; Evil
 (setq-default evil-want-C-u-scroll t)
 (global-evil-leader-mode)
@@ -168,6 +168,7 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-c r") 'recentf-open-files)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
@@ -185,6 +186,12 @@
   (evil-backward-char))
 (define-key evil-insert-state-map "\C-k" 'insert-erb-tag)
 (define-key evil-insert-state-map "\C-l" "binding.pry")
+
+;; Ctags
+(require 'ctags)
+(setq tags-revert-without-query t)
+(setq tags-add-tables t)
+(define-key evil-normal-state-map "\C-]" 'etags-select-find-tag-at-point)
 
 ;; Smex
 (smex-initialize)
@@ -280,6 +287,10 @@
 ;; (add-hook 'scala-mode-hook 'enable-paredit-mode)
 
 ;; Ruby Mode
+
+
+;; Ensime
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -420,9 +431,12 @@ end tell")))
  '(company-tooltip-common ((t (:inherit company-tooltip :foreground "keyboardFocusIndicatorColor" :weight bold))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "alternateSelectedControlColor"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip))))
+ '(hl-line ((t nil)))
  '(hs-face ((t (:foreground "keyboardFocusIndicatorColor"))))
  '(markdown-header-face ((t (:inherit default :foreground "#3869c9"))))
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 300))))
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 220))))
  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 140))))
- '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 60)))))
+ '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 60))))
+ '(neo-dir-link-face ((t (:foreground "#3869c9"))))
+ '(neo-expand-btn-face ((t (:foreground "#3869c9")))))
