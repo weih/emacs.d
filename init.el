@@ -75,7 +75,6 @@
 (global-auto-revert-mode 1)
 (blink-cursor-mode 0)
 (delete-selection-mode 1)
-(recentf-mode 1)
 
 ;; Frame
 (defconst title "新しい自分に生まれ変わったら きっと、もっと美しい明日がやってくる")
@@ -168,7 +167,6 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-s") 'save-buffer)
-(global-set-key (kbd "C-c r") 'recentf-open-files)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
@@ -192,6 +190,32 @@
 (setq tags-revert-without-query t)
 (setq tags-add-tables t)
 (define-key evil-normal-state-map "\C-]" 'etags-select-find-tag-at-point)
+
+;; Recentf
+(recentf-mode 1)
+(setq recentf-max-saved-items 30)
+(defun recentf-interactive-complete ()
+  "find a file in the recently open file using ido for completion"
+  (interactive)
+  (let* ((all-files recentf-list)
+         (file-assoc-list (mapcar (lambda (x) (cons (file-name-nondirectory x) x)) all-files))
+         (filename-list (remove-duplicates (mapcar 'car file-assoc-list) :test 'string=))
+         (ido-make-buffer-list-hook
+          (lambda ()
+            (setq ido-temp-list filename-list)))
+         (filename (ido-read-buffer "Find Recent File: "))
+         (result-list (delq nil (mapcar (lambda (x) (if (string= (car x) filename) (cdr x))) file-assoc-list)))
+         (result-length (length result-list)))
+    (find-file
+     (cond
+      ((= result-length 0) filename)
+      ((= result-length 1) (car result-list))
+      ( t
+        (let ( (ido-make-buffer-list-hook
+                (lambda ()
+                  (setq ido-temp-list result-list))))
+          (ido-read-buffer (format "%d matches:" result-length))))))))
+(define-key evil-normal-state-map (kbd "C-m") 'recentf-interactive-complete)
 
 ;; Smex
 (smex-initialize)
@@ -288,7 +312,6 @@
 
 ;; Ruby Mode
 
-
 ;; Ensime
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
@@ -350,7 +373,7 @@
             (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
             (define-key evil-normal-state-local-map (kbd "|") 'neotree-enter-vertical-split)
             (define-key evil-normal-state-local-map (kbd "-") 'neotree-enter-horizontal-split)
-            (define-key evil-normal-state-local-map (kbd "g") 'neotree-preview)
+            (define-key evil-normal-state-local-map (kbd "i") 'neotree-preview)
             (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)))
 
 ;; Use OS X Color Picker in Emacs
