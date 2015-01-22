@@ -140,6 +140,7 @@
 (evil-leader/set-key "u" 'universal-argument)
 (evil-leader/set-key "," 'evil-buffer)
 (evil-mode 1)
+(add-hook 'temp-buffer-window-show-hook 'turn-off-evil-mode)
 
 (evil-define-command cofi/maybe-exit ()
   :repeat change
@@ -218,7 +219,7 @@
                 (lambda ()
                   (setq ido-temp-list result-list))))
           (ido-read-buffer (format "%d matches:" result-length))))))))
-(define-key evil-normal-state-map (kbd "C-;") 'recentf-interactive-complete)
+(define-key evil-normal-state-map (kbd "C-t") 'recentf-interactive-complete)
 
 ;; Smex
 (smex-initialize)
@@ -229,7 +230,7 @@
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
-;; Companym Mode
+;; Company Mode
 (global-company-mode 1)
 (define-key evil-insert-state-map "\C-i" 'company-ispell)
 
@@ -321,6 +322,7 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (define-key evil-normal-state-map "\M-." 'ensime-edit-definition)
 (define-key evil-normal-state-map "\M-m" 'ensime-show-uses-of-symbol-at-point)
+;; (add-hook 'ensime-popup-buffer-mode-hook 'turn-off-evil-mode)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
