@@ -168,10 +168,12 @@
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-s") 'save-buffer)
 (evil-leader/set-key "k" 'kill-buffer-and-window)
+(evil-leader/set-key "q" 'kill-buffer-and-window)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
 (define-key evil-normal-state-map "\C-k" 'other-window)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
+(define-key evil-normal-state-map "\C-o" 'pop-tag-mark)
 (global-set-key (kbd "s-<up>") 'scroll-other-window-down)
 (global-set-key (kbd "s-<down>") 'scroll-other-window)
 (global-set-key "\M-h" 'paredit-backward-slurp-sexp)
@@ -318,6 +320,7 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (define-key evil-normal-state-map "\M-." 'ensime-edit-definition)
+(define-key evil-normal-state-map "\M-m" 'ensime-show-uses-of-symbol-at-point)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
