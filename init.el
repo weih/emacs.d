@@ -83,7 +83,7 @@
                                         (select-frame frame)
                                         (set-frame-name title)))
 (setq default-frame-alist '((top . 50) (left . 100)
-                            (width . 130) (height . 35)))
+                            (width . 130) (height . 55)))
 
 ;; Font
 (set-face-attribute 'default nil :font "Monaco-14")
@@ -172,7 +172,9 @@
 (evil-leader/set-key "q" 'kill-buffer-and-window)
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'move-end-of-line)
-(define-key evil-normal-state-map "\C-k" 'other-window)
+(define-key evil-normal-state-map "\C-l" 'other-window)
+(define-key evil-normal-state-map "\C-j" 'evil-scroll-down)
+(define-key evil-normal-state-map "\C-k" 'evil-scroll-up)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
 (define-key evil-normal-state-map "\C-o" 'pop-tag-mark)
 (global-set-key (kbd "s-<up>") 'scroll-other-window-down)
@@ -197,7 +199,7 @@
 
 ;; Recentf
 (recentf-mode 1)
-(setq recentf-max-saved-items 30)
+(setq recentf-max-saved-items 50)
 (defun recentf-interactive-complete ()
   "find a file in the recently open file using ido for completion"
   (interactive)
@@ -245,7 +247,7 @@
 (evil-leader/set-key "md" 'magit-diff-unstaged)
 
 ;; Indent Guide
-(indent-guide-global-mode)
+;; (indent-guide-global-mode)
 
 ;; Anzu
 (global-anzu-mode 1)
@@ -261,17 +263,17 @@
 (global-set-key (kbd "M-w") 'er/expand-region)
 
 ;; Hideshowvis
-;; (add-hook 'clojure-mode-hook 'hideshowvis-enable)
-;; (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
-;; (add-hook 'ruby-mode-hook 'hideshowvis-enable)
-;; (add-hook 'python-mode-hook 'hideshowvis-enable)
-;; (add-hook 'lua-mode-hook 'hideshowvis-enable)
-;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
-;; (add-hook 'coffee-mode-hook 'hideshowvis-enable)
-;; (add-hook 'scala-mode-hook 'hideshowvis-enable)
-;; (hideshowvis-symbols)
-;; (define-key evil-normal-state-map "zA" 'hs-hide-all)
-;; (define-key evil-normal-state-map "zB" 'hs-show-all)
+(add-hook 'clojure-mode-hook 'hideshowvis-enable)
+(add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
+(add-hook 'ruby-mode-hook 'hideshowvis-enable)
+(add-hook 'python-mode-hook 'hideshowvis-enable)
+(add-hook 'lua-mode-hook 'hideshowvis-enable)
+(add-hook 'js2-mode-hook 'hideshowvis-enable)
+(add-hook 'coffee-mode-hook 'hideshowvis-enable)
+(add-hook 'scala-mode-hook 'hideshowvis-enable)
+(hideshowvis-symbols)
+(define-key evil-normal-state-map "za" 'hs-hide-level)
+(define-key evil-normal-state-map "zb" 'hs-show-all)
 
 ;; Highlight Chars
 ;; (require 'highlight-chars)
