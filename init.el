@@ -96,10 +96,10 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'dichromacy t)
+;; (load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
-;; (load-theme 'jazz t)
+(load-theme 'jazz t)
 ;; (load-theme 'cyberpunk t)
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
@@ -242,7 +242,8 @@
 
 ;; Company Mode
 (global-company-mode 1)
-(define-key evil-insert-state-map "\C-i" 'company-ispell)
+(define-key evil-insert-state-map "\C-j" 'company-ispell)
+;; (define-key evil-insert-state-map [tab] 'company-select-next)
 
 ;; Rainbow Mode
 (add-hook 'scss-mode-hook 'rainbow-mode)
@@ -496,6 +497,8 @@ end tell")))
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0)
+ '(company-show-numbers t)
+ '(company-tooltip-margin 1)
  '(frame-resize-pixelwise t)
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace t)
