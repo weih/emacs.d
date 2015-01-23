@@ -24,6 +24,9 @@
                       less-css-mode
                       emmet-mode
                       rainbow-mode
+                      enh-ruby-mode
+                      robe
+                      rbenv
                       cider
                       evil
                       evil-leader
@@ -265,7 +268,7 @@
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
 (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
-(add-hook 'ruby-mode-hook 'hideshowvis-enable)
+;; (add-hook 'enh-ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
@@ -316,6 +319,13 @@
 ;; (add-hook 'coffee-mode-hook 'enable-paredit-mode)
 ;; (add-hook 'web-mode-hook 'enable-paredit-mode)
 ;; (add-hook 'scala-mode-hook 'enable-paredit-mode)
+
+;; Rbenv
+(global-rbenv-mode 1)
+(push 'company-robe company-backends)
+
+;; Robe
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
 
 ;; Seeing Is Believing
 (defun seeing-is-believing ()
