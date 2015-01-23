@@ -179,6 +179,8 @@
 (define-key evil-normal-state-map "\C-l" 'other-window)
 (define-key evil-normal-state-map "\C-j" 'evil-scroll-down)
 (define-key evil-normal-state-map "\C-k" 'evil-scroll-up)
+(define-key evil-normal-state-map "8" 'evil-scroll-down)
+(define-key evil-normal-state-map "9" 'evil-scroll-up)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
 (define-key evil-normal-state-map "\C-o" 'pop-tag-mark)
 (global-set-key (kbd "s-<up>") 'scroll-other-window-down)
@@ -243,6 +245,7 @@
 ;; Rainbow Mode
 (add-hook 'scss-mode-hook 'rainbow-mode)
 (add-hook 'less-mode-hook 'rainbow-mode)
+(add-hook 'css-mode-hook 'rainbow-mode)
 
 ;; Magit Mode
 (evil-leader/set-key "ms" 'magit-status)
@@ -271,7 +274,7 @@
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
 (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
-;; (add-hook 'enh-ruby-mode-hook 'hideshowvis-enable)
+(add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
@@ -280,6 +283,12 @@
 (hideshowvis-symbols)
 (define-key evil-normal-state-map "zx" 'hs-hide-level)
 (define-key evil-normal-state-map "zb" 'hs-show-all)
+(add-to-list 'hs-special-modes-alist
+             '(ruby-mode "^\\s-*\\(?:def\\|do\\)\\>" "end" "#"
+                         (lambda (arg)
+                           (end-of-defun)
+                           (previous-line))
+                         nil))
 
 ;; Highlight Chars
 ;; (require 'highlight-chars)
@@ -358,6 +367,11 @@ of seeing_is_believing."
 (add-to-list 'auto-mode-alist '("\.gvimrc\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\.curlrc\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\.wgetrc\\'" . shell-script-mode))
+
+;; Eldoc Mode
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
