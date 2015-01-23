@@ -350,6 +350,8 @@ of seeing_is_believing."
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache?\\'" . web-mode))
 
 (add-hook 'web-mode-hook (lambda ()
                            (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
@@ -465,6 +467,7 @@ end tell")))
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace t)
  '(js2-mode-show-parse-errors t)
+ '(magit-completing-read-function (quote magit-ido-completing-read))
  '(neo-theme (quote ascii))
  '(projectile-globally-ignored-directories
    (quote
