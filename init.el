@@ -268,8 +268,14 @@
 ;; Flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; FlySpell
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; Expand Region
 (global-set-key (kbd "M-w") 'er/expand-region)
+
+;; Multiple Cursors
+(global-set-key (kbd "M-e") 'mc/mark-all-words-like-this)
 
 ;; Hideshowvis
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
