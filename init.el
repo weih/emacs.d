@@ -247,7 +247,8 @@
 ;; Magit Mode
 (evil-leader/set-key "ms" 'magit-status)
 (evil-leader/set-key "ml" 'magit-log)
-(evil-leader/set-key "mc" 'magit-commit)
+(evil-leader/set-key "mca" 'magit-commit)
+(evil-leader/set-key "mco" 'magit-checkout)
 (evil-leader/set-key "mp" 'magit-push)
 (evil-leader/set-key "md" 'magit-diff-unstaged)
 
@@ -277,7 +278,7 @@
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
-(define-key evil-normal-state-map "za" 'hs-hide-level)
+(define-key evil-normal-state-map "zx" 'hs-hide-level)
 (define-key evil-normal-state-map "zb" 'hs-show-all)
 
 ;; Highlight Chars
@@ -347,12 +348,22 @@ of seeing_is_believing."
 (define-key evil-normal-state-map "\M-m" 'ensime-show-uses-of-symbol-at-point)
 ;; (add-hook 'ensime-popup-buffer-mode-hook 'turn-off-evil-mode)
 
+;; Shell Script Mode
+(add-to-list 'auto-mode-alist '("\.zshrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.zshenv\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.zprofile\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.gitconfig\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\aliases\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.vimrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.gvimrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.curlrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\.wgetrc\\'" . shell-script-mode))
+
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache?\\'" . web-mode))
-
 (add-hook 'web-mode-hook (lambda ()
                            (define-key evil-normal-state-map "za" 'web-mode-fold-or-unfold)))
 
