@@ -24,7 +24,7 @@
                       less-css-mode
                       emmet-mode
                       rainbow-mode
-                      enh-ruby-mode
+                      ;; enh-ruby-mode
                       robe
                       rbenv
                       cider
@@ -39,6 +39,7 @@
                       smex
                       guide-key
                       paredit
+                      smartparens
                       anzu
                       ace-jump-mode
                       hideshowvis
@@ -245,6 +246,7 @@
 
 ;; Magit Mode
 (evil-leader/set-key "ms" 'magit-status)
+(evil-leader/set-key "ml" 'magit-log)
 (evil-leader/set-key "mc" 'magit-commit)
 (evil-leader/set-key "mp" 'magit-push)
 (evil-leader/set-key "md" 'magit-diff-unstaged)
@@ -306,8 +308,10 @@
 
 ;; Smartparens
 ;; (require 'smartparens-config)
-;; (smartparens-global-mode t)
+(require 'smartparens-ruby)
+(add-hook 'ruby-mode-hook 'smartparens-mode)
 ;; (show-smartparens-global-mode t)
+;; (smartparens-global-mode t)
 ;; (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 ;; (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
@@ -325,7 +329,7 @@
 (push 'company-robe company-backends)
 
 ;; Robe
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 ;; Seeing Is Believing
 (defun seeing-is-believing ()
