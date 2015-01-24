@@ -286,7 +286,7 @@
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
-(add-hook 'js2-mode-hook 'hideshowvis-enable)
+;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
