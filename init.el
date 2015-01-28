@@ -96,10 +96,10 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'dichromacy t)
+(load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
-(load-theme 'jazz t)
+;; (load-theme 'jazz t)
 ;; (load-theme 'cyberpunk t)
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
@@ -185,6 +185,8 @@
 (define-key evil-normal-state-map "9" 'evil-scroll-up)
 (define-key evil-normal-state-map "\C-\M-f" 'toggle-frame-fullscreen)
 (define-key evil-normal-state-map "\C-o" 'pop-tag-mark)
+(define-key evil-insert-state-map (kbd "<S-return>") 'evil-open-above)
+(define-key evil-insert-state-map (kbd "<M-return>") 'evil-open-below)
 (global-set-key (kbd "s-<up>") 'scroll-other-window-down)
 (global-set-key (kbd "s-<down>") 'scroll-other-window)
 (global-set-key "\M-h" 'paredit-backward-slurp-sexp)
@@ -242,7 +244,7 @@
 
 ;; Company Mode
 (global-company-mode 1)
-(define-key evil-insert-state-map "\C-j" 'company-ispell)
+(define-key evil-insert-state-map "\C-i" 'company-ispell)
 ;; (define-key evil-insert-state-map [tab] 'company-select-next)
 
 ;; Rainbow Mode
@@ -507,7 +509,7 @@ end tell")))
  '(neo-theme (quote ascii))
  '(projectile-globally-ignored-directories
    (quote
-    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules" ".ensime_cache")))
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "test/bower_components" "bower_components" "node_modules" ".ensime_cache" "target" "project/target" "project/project/target" ".sass-cache" ".tmp" "dist")))
  '(ruby-insert-encoding-magic-comment nil)
  '(web-mode-enable-auto-pairing nil)
  '(web-mode-markup-indent-offset 2))
