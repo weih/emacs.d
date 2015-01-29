@@ -18,6 +18,7 @@
                       scala-mode2
                       ensime
                       lua-mode
+                      go-mode
                       yaml-mode
                       markdown-mode
                       scss-mode
@@ -52,6 +53,9 @@
                       git-timemachine
                       git-gutter+
                       highlight-symbol
+                      highlight-chars
+                      youdao-dictionary
+                      osx-dictionary
                       jazz-theme
                       twilight-theme
                       afternoon-theme
@@ -291,6 +295,7 @@
 ;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
 (add-hook 'coffee-mode-hook 'hideshowvis-enable)
 (add-hook 'scala-mode-hook 'hideshowvis-enable)
+(add-hook 'go-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
 (define-key evil-normal-state-map "zx" 'hs-hide-level)
 (define-key evil-normal-state-map "zb" 'hs-show-all)
