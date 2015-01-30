@@ -267,6 +267,10 @@
 ;; Indent Guide
 ;; (indent-guide-global-mode)
 
+;; Dictionary
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
+(global-set-key (kbd "C-c o") 'osx-dictionary-search-pointer)
+
 ;; Anzu
 (global-anzu-mode 1)
 (defun my-anzu-update-func (here total)
@@ -543,4 +547,5 @@ end tell")))
  '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 60))))
  '(neo-dir-link-face ((t (:foreground "#3869c9"))))
  '(neo-expand-btn-face ((t (:foreground "#3869c9"))))
- '(neo-file-link-face ((t (:foreground "#7b7b7b")))))
+ '(neo-file-link-face ((t (:foreground "#7b7b7b"))))
+ '(popup-tip-face ((t (:background "#EDEBE3" :foreground "#3E8EDE")))))

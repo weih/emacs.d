@@ -6,6 +6,7 @@ eshell
 ido.last
 recentf
 backups
+url
 auto-save-list
 .mc-lists.el
 .youdao-search-history
