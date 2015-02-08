@@ -15,14 +15,15 @@
                       coffee-mode
                       web-mode
                       js2-mode
-                      scala-mode2
-                      ensime
+                      ;; scala-mode2
+                      ;; ensime
                       lua-mode
                       go-mode
                       yaml-mode
                       markdown-mode
                       scss-mode
                       less-css-mode
+                      haml-mode
                       emmet-mode
                       rainbow-mode
                       ;; enh-ruby-mode
@@ -100,10 +101,10 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'dichromacy t)
+;; (load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
-;; (load-theme 'jazz t)
+(load-theme 'jazz t)
 ;; (load-theme 'cyberpunk t)
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
@@ -294,6 +295,7 @@
 (add-hook 'clojure-mode-hook 'hideshowvis-enable)
 (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
 (add-hook 'ruby-mode-hook 'hideshowvis-enable)
+(add-hook 'scss-mode-hook 'hideshowvis-enable)
 (add-hook 'python-mode-hook 'hideshowvis-enable)
 (add-hook 'lua-mode-hook 'hideshowvis-enable)
 ;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
@@ -371,10 +373,10 @@ of seeing_is_believing."
     (shell-command-on-region beg end "seeing_is_believing" nil 'replace)))
 
 ;; Ensime
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(define-key evil-normal-state-map "\M-." 'ensime-edit-definition)
-(define-key evil-normal-state-map "\M-m" 'ensime-show-uses-of-symbol-at-point)
+;; (require 'ensime)
+;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;; (define-key evil-normal-state-map "\M-." 'ensime-edit-definition)
+;; (define-key evil-normal-state-map "\M-m" 'ensime-show-uses-of-symbol-at-point)
 ;; (add-hook 'ensime-popup-buffer-mode-hook 'turn-off-evil-mode)
 
 ;; Shell Script Mode
@@ -387,6 +389,10 @@ of seeing_is_believing."
 (add-to-list 'auto-mode-alist '("\.gvimrc\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\.curlrc\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\.wgetrc\\'" . shell-script-mode))
+
+;; Markdown Mode
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
 
 ;; Eldoc Mode
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -541,10 +547,10 @@ end tell")))
  '(hl-line ((t nil)))
  '(hs-face ((t (:foreground "keyboardFocusIndicatorColor"))))
  '(markdown-header-face ((t (:inherit default :foreground "#3869c9"))))
- '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 300))))
- '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 220))))
- '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 140))))
- '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 60))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 250))))
+ '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 200))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 160))))
+ '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 140))))
  '(neo-dir-link-face ((t (:foreground "#3869c9"))))
  '(neo-expand-btn-face ((t (:foreground "#3869c9"))))
  '(neo-file-link-face ((t (:foreground "#7b7b7b"))))
