@@ -3,72 +3,72 @@
 
 ;; Package
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(better-defaults
-                      exec-path-from-shell
-                      projectile
-                      editorconfig
-                      clojure-mode
-                      coffee-mode
-                      web-mode
-                      js2-mode
-                      ;; scala-mode2
-                      ;; ensime
-                      lua-mode
-                      go-mode
-                      yaml-mode
-                      markdown-mode
-                      scss-mode
-                      less-css-mode
-                      haml-mode
-                      emmet-mode
-                      rainbow-mode
-                      ;; enh-ruby-mode
-                      robe
-                      rbenv
-                      cider
-                      evil
-                      evil-leader
-                      company
-                      neotree
-                      flx-ido
-                      ido-vertical-mode
-                      ido-ubiquitous
-                      ag
-                      smex
-                      guide-key
-                      paredit
-                      smartparens
-                      anzu
-                      ace-jump-mode
-                      hideshowvis
-                      magit
-                      ctags
-                      etags-select
-                      expand-region
-                      multiple-cursors
-                      indent-guide
-                      git-timemachine
-                      git-gutter+
-                      highlight-symbol
-                      highlight-chars
-                      youdao-dictionary
-                      osx-dictionary
-                      jazz-theme
-                      twilight-theme
-                      afternoon-theme
-                      cyberpunk-theme
-                      distinguished-theme))
+;; (defvar my-packages '(better-defaults
+;;                       exec-path-from-shell
+;;                       projectile
+;;                       editorconfig
+;;                       clojure-mode
+;;                       coffee-mode
+;;                       web-mode
+;;                       js2-mode
+;;                       ;; scala-mode2
+;;                       ;; ensime
+;;                       lua-mode
+;;                       go-mode
+;;                       yaml-mode
+;;                       markdown-mode
+;;                       scss-mode
+;;                       less-css-mode
+;;                       haml-mode
+;;                       emmet-mode
+;;                       rainbow-mode
+;;                       ;; enh-ruby-mode
+;;                       robe
+;;                       rbenv
+;;                       cider
+;;                       evil
+;;                       evil-leader
+;;                       company
+;;                       neotree
+;;                       flx-ido
+;;                       ido-vertical-mode
+;;                       ido-ubiquitous
+;;                       ag
+;;                       smex
+;;                       guide-key
+;;                       paredit
+;;                       smartparens
+;;                       anzu
+;;                       ace-jump-mode
+;;                       hideshowvis
+;;                       magit
+;;                       ctags
+;;                       etags-select
+;;                       expand-region
+;;                       multiple-cursors
+;;                       indent-guide
+;;                       git-timemachine
+;;                       git-gutter+
+;;                       highlight-symbol
+;;                       highlight-chars
+;;                       youdao-dictionary
+;;                       osx-dictionary
+;;                       jazz-theme
+;;                       twilight-theme
+;;                       afternoon-theme
+;;                       cyberpunk-theme
+;;                       distinguished-theme))
 
-(dolist (p my-packages)
-  (unless (package-installed-p p)
-    (package-install p)))
+;; (dolist (p my-packages)
+;;   (unless (package-installed-p p)
+;;     (package-install p)))
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
 ;; Common
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -101,10 +101,10 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'dichromacy t)
+(load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
-(load-theme 'jazz t)
+;; (load-theme 'jazz t)
 ;; (load-theme 'cyberpunk t)
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
