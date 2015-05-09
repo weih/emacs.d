@@ -92,8 +92,8 @@
                                         (select-frame frame)
                                         (set-frame-name title)
                                         (scroll-bar-mode -1)))
-(setq default-frame-alist '((top . 50) (left . 100)
-                            (width . 130) (height . 55)))
+;; (setq default-frame-alist '((top . 50) (left . 100)
+;;                             (width . 130) (height . 55)))
 
 ;; Font
 (set-face-attribute 'default nil :font "Monaco-14")
@@ -101,7 +101,7 @@
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'dichromacy t)
+;; (load-theme 'dichromacy t)
 ;; (load-theme 'tomorrow-day t)
 ;; (load-theme 'afternoon t)
 ;; (load-theme 'jazz t)
@@ -109,6 +109,7 @@
 ;; (load-theme 'twilight t)
 ;; (load-theme 'distinguished t)
 ;; (load-theme 'flatui t)
+(load-theme 'mac-classic t)
 
 ;; Mode Line
 (setq-default mode-line-format
@@ -292,16 +293,16 @@
 (global-set-key (kbd "M-e") 'mc/mark-all-words-like-this)
 
 ;; Hideshowvis
-(add-hook 'clojure-mode-hook 'hideshowvis-enable)
-(add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
-(add-hook 'ruby-mode-hook 'hideshowvis-enable)
-(add-hook 'scss-mode-hook 'hideshowvis-enable)
-(add-hook 'python-mode-hook 'hideshowvis-enable)
-(add-hook 'lua-mode-hook 'hideshowvis-enable)
+;; (add-hook 'clojure-mode-hook 'hideshowvis-enable)
+;; (add-hook 'emacs-lisp-mode-hook 'hideshowvis-enable)
+;; (add-hook 'ruby-mode-hook 'hideshowvis-enable)
+;; (add-hook 'scss-mode-hook 'hideshowvis-enable)
+;; (add-hook 'python-mode-hook 'hideshowvis-enable)
+;; (add-hook 'lua-mode-hook 'hideshowvis-enable)
 ;; (add-hook 'js2-mode-hook 'hideshowvis-enable)
-(add-hook 'coffee-mode-hook 'hideshowvis-enable)
-(add-hook 'scala-mode-hook 'hideshowvis-enable)
-(add-hook 'go-mode-hook 'hideshowvis-enable)
+;; (add-hook 'coffee-mode-hook 'hideshowvis-enable)
+;; (add-hook 'scala-mode-hook 'hideshowvis-enable)
+;; (add-hook 'go-mode-hook 'hideshowvis-enable)
 (hideshowvis-symbols)
 (define-key evil-normal-state-map "zx" 'hs-hide-level)
 (define-key evil-normal-state-map "zb" 'hs-show-all)
@@ -506,7 +507,7 @@ end tell")))
 (defalias 'widget-color--choose-action 'custom-color--choose-action)
 
 ;; Start server
-(server-start)
+;; (server-start)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
